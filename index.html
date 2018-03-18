@@ -97,6 +97,9 @@
                                            class="form-text text-muted">Password to encrypt your content.</small>
                                 </div>
 
+                                <span id="encrypt-error"
+                                      class="text-danger float-sm-right">
+                                </span>
                                 <button type="submit"
                                         id="encrypt-btn"
                                         class="btn btn-primary">
@@ -156,6 +159,9 @@
                                            class="form-text text-muted">Password to decrypt your content.</small>
                                 </div>
 
+                                <span id="decrypt-error"
+                                      class="text-danger float-sm-right">
+                                </span>
                                 <button type="submit"
                                         id="decrypt-btn"
                                         class="btn btn-primary">
@@ -197,7 +203,8 @@
             <div class="card-body">
                 <ul>
                     <li>This tool can run offline.</li>
-                    <li>The encryption and decryption is done, by default, using <strong>AES 256 CBC</strong>.</li>
+                    <li>The encryption and decryption is done, by default, using
+                        <strong>AES 256 CBC</strong>.</li>
                     <li>For the encryption, the
                         <code>crypto</code> module of
                         <a href="https://nodejs.org"
