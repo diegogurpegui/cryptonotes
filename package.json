@@ -1,0 +1,27 @@
+{
+  "name": "cryptonotes",
+  "version": "1.0.0",
+  "description": "Super simple note encryption/decryption tool",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diegogurpegui/cryptonotes.git"
+  },
+  "keywords": [
+    "cryptography",
+    "notes",
+    "private",
+    "personal"
+  ],
+  "author": "Diego H. Gurpegui (http://diegogurpegui.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/diegogurpegui/cryptonotes/issues"
+  },
+  "homepage": "https://github.com/diegogurpegui/cryptonotes#readme",
+  "dependencies": {
+  }
+}
