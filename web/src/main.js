@@ -34,4 +34,28 @@ $(function () {
 
         return false;
     })
+
+    $("[data-command='clipboard']").click(function (e) {
+        let targetId = $(this).data("target")
+        let target = $("#" + targetId)
+
+        // save current focus
+        let currentFocus = document.activeElement;
+        // select all the content to be copied
+        target.focus();
+        target[0].setSelectionRange(0, target.text().length);
+        // send to clipboard
+        let succeed;
+        try {
+            succeed = document.execCommand("copy");
+        } catch (e) {
+            succeed = false;
+        }
+        // restore original focus
+        if (currentFocus && typeof currentFocus.focus === "function") {
+            currentFocus.focus();
+        }
+
+        return false
+    })
 })
