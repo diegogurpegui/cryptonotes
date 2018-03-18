@@ -4,6 +4,7 @@
   "description": "Super simple note encryption/decryption tool",
   "main": "index.js",
   "scripts": {
+    "webpack": "webpack-cli --config=webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,6 +23,9 @@
     "url": "https://github.com/diegogurpegui/cryptonotes/issues"
   },
   "homepage": "https://github.com/diegogurpegui/cryptonotes#readme",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.12"
   }
 }
