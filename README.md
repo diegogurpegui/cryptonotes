@@ -18,5 +18,5 @@ $ node cli decrypt <password> <content>
 
 ## Web tool
 The web tool is a user friendly version.
-For the moment, it is located under http://diegogurpegui.com/cryptonotes/
-(WARNING: )
+For the moment, it is located under https://diegogurpegui.com/cryptonotes/
+(WARNING: even if the encryption functions are able to run offline, the site uses 3rd party library in order to create a more rich user experience)
