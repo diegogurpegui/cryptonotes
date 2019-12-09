@@ -10,17 +10,17 @@ module.exports = function () {
      * @param {string} content 
      * @param {string} key 
      * @param {string} algorithm 
+     * @param {string} outputEncoding 
      */
-    module.encrypt = function (content, key, algorithm) {
-        algorithm = algorithm || config.algorithm
+    module.encrypt = function (content, key, algorithm = config.algorithm, outputEncoding = config.encrypt_encoding) {
         // process the key
         let preparedKey = prepareKey(key)
         // create the cipher
         let cipher = crypto.createCipheriv(algorithm, preparedKey.encodedKey, preparedKey.iv)
 
         // encrypt the data from "utf8" input to (configurable) output
-        let encryptedData = cipher.update(content, 'utf8', config.encrypt_encoding)
-        encryptedData += cipher.final(config.encrypt_encoding)
+        let encryptedData = cipher.update(content, 'utf8', outputEncoding)
+        encryptedData += cipher.final(outputEncoding)
         return encryptedData
     }
 
@@ -30,15 +30,15 @@ module.exports = function () {
      * @param {string} content 
      * @param {string} key 
      * @param {string} algorithm 
+     * @param {string} inputEncoding 
      */
-    module.decrypt = function (content, key, algorithm) {
-        algorithm = algorithm || config.algorithm
+    module.decrypt = function (content, key, algorithm = config.algorithm, inputEncoding = config.encrypt_encoding) {
         // process the key
         let preparedKey = prepareKey(key)
         // create the decipher
         var decipher = crypto.createDecipheriv(algorithm, preparedKey.encodedKey, preparedKey.iv)
 
-        var decryptedData = decipher.update(content, config.encrypt_encoding, 'utf8')
+        var decryptedData = decipher.update(content, inputEncoding, 'utf8')
         decryptedData += decipher.final('utf8')
         return decryptedData
     }

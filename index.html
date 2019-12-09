@@ -98,10 +98,29 @@
                     <small id="passwordHelp" class="form-text text-muted">Password to encrypt your content.</small>
                   </div>
 
-                  <span id="encrypt-error" class="text-danger float-sm-right"> </span>
-                  <button type="submit" id="encrypt-btn" class="btn btn-primary">
-                    <i class="fas fa-lock"></i> Encrypt
-                  </button>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" for="decrypt-output-encoding"
+                            >Ouput&nbsp;<span class="d-none d-sm-inline">encoding</span></label
+                          >
+                        </div>
+                        <select class="custom-select" id="decrypt-output-encoding">
+                          <option selected value="base64">Base64</option>
+                          <option value="hex">Hexadecimal</option>
+                        </select>
+                        <div class="input-group-append">
+                          <button type="submit" id="encrypt-btn" class="btn btn-primary">
+                            <i class="fas fa-lock"></i> Encrypt
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <span id="encrypt-error" class="text-danger"> </span>
+                    </div>
+                  </div>
                 </form>
               </div>
               <div id="encrypt-result-panel" class="card text-white bg-secondary">
@@ -126,6 +145,7 @@
                 </div>
               </div>
             </div>
+
             <!-- Decrypt tab -->
             <div class="tab-pane" id="decrypt" role="tabpanel" aria-labelledby="decrypt-tab">
               <div id="decrypt-panel" class="mb-3">
@@ -156,10 +176,12 @@
                     <small id="passwordHelp" class="form-text text-muted">Password to decrypt your content.</small>
                   </div>
 
-                  <span id="decrypt-error" class="text-danger float-sm-right"> </span>
-                  <button type="submit" id="decrypt-btn" class="btn btn-primary">
-                    <i class="fas fa-lock-open"></i> Decrypt
-                  </button>
+                  <div>
+                    <button type="submit" id="decrypt-btn" class="btn btn-primary">
+                      <i class="fas fa-lock-open"></i> Decrypt
+                    </button>
+                    <span id="decrypt-error" class="text-danger float-sm-right"> </span>
+                  </div>
                 </form>
               </div>
               <div id="decrypt-result-panel" class="card text-white bg-secondary">
