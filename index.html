@@ -1,243 +1,237 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-          crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
 
-    <link rel="stylesheet"
-          href="web/css/style.css">
+    <link rel="stylesheet" href="web/css/style.css" />
 
     <!-- Font Awesome -->
-    <script defer
-            src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js"
-            integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l"
-            crossorigin="anonymous"></script>
-    <script defer
-            src="https://use.fontawesome.com/releases/v5.0.8/js/brands.js"
-            integrity="sha384-sCI3dTBIJuqT6AwL++zH7qL8ZdKaHpxU43dDt9SyOzimtQ9eyRhkG3B7KMl6AO19"
-            crossorigin="anonymous"></script>
-    <script defer
-            src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js"
-            integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c"
-            crossorigin="anonymous"></script>
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js"
+      integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.0.8/js/brands.js"
+      integrity="sha384-sCI3dTBIJuqT6AwL++zH7qL8ZdKaHpxU43dDt9SyOzimtQ9eyRhkG3B7KMl6AO19"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js"
+      integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c"
+      crossorigin="anonymous"
+    ></script>
 
     <title>CryptoNotes</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="text-center mb-4">
-        <h1>CryptoNotes</h1>
+      <h1>CryptoNotes</h1>
     </div>
 
     <div class="container">
-        <div class="alert alert-warning"
-             role="alert">
-            This web tool uses third party libraries in order to create a more rich user experience. If you are concern about privacy
-            or security, please check out the
-            <a href="https://github.com/diegogurpegui/cryptonotes">CLI tool.</a>
-        </div>
+      <div class="alert alert-warning" role="alert">
+        This web tool uses third party libraries in order to create a more rich user experience. If you are concern
+        about privacy or security, please check out the
+        <a href="https://github.com/diegogurpegui/cryptonotes">CLI tool.</a>
+      </div>
 
-        <div id="operations-panel"
-             class="card mb-4">
-            <div class="card-body">
-                <nav class="nav nav-pills nav-fill">
-                    <a class="nav-item nav-link active"
-                       id="encrypt-tab"
-                       data-toggle="tab"
-                       href="#encrypt"
-                       role="tab"
-                       aria-controls="encrypt"
-                       aria-selected="true">Encrypt</a>
-                    <a class="nav-item nav-link"
-                       id="encrypt-tab"
-                       data-toggle="tab"
-                       href="#decrypt">Decrypt</a>
-                </nav>
+      <div id="operations-panel" class="card mb-4">
+        <div class="card-body">
+          <nav class="nav nav-pills nav-fill">
+            <a
+              class="nav-item nav-link active"
+              id="encrypt-tab"
+              data-toggle="tab"
+              href="#encrypt"
+              role="tab"
+              aria-controls="encrypt"
+              aria-selected="true"
+              >Encrypt</a
+            >
+            <a class="nav-item nav-link" id="encrypt-tab" data-toggle="tab" href="#decrypt">Decrypt</a>
+          </nav>
 
-                <!-- Tab panes -->
-                <div class="tab-content">
-                    <!-- Encrypt tab -->
-                    <div class="tab-pane active"
-                         id="encrypt"
-                         role="tabpanel"
-                         aria-labelledby="encrypt-tab">
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <!-- Encrypt tab -->
+            <div class="tab-pane active" id="encrypt" role="tabpanel" aria-labelledby="encrypt-tab">
+              <div id="encrypt-panel" class="mb-3">
+                <form id="encrypt-form">
+                  <div class="form-group">
+                    <label for="password-input"
+                      >Note content
+                      <i class="fas fa-lock-open"></i>
+                    </label>
+                    <textarea
+                      class="form-control"
+                      id="encrypt-content-input"
+                      required="required"
+                      aria-describedby="contentHelp"
+                    ></textarea>
+                    <small id="contentHelp" class="form-text text-muted">Note to be encrypted.</small>
+                  </div>
+                  <div class="form-group">
+                    <label for="password-input">Password</label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="encrypt-password-input"
+                      required="required"
+                      aria-describedby="passwordHelp"
+                      placeholder="Enter password/passphrase"
+                    />
+                    <small id="passwordHelp" class="form-text text-muted">Password to encrypt your content.</small>
+                  </div>
 
-                        <div id="encrypt-panel"
-                             class="mb-3">
-                            <form id="encrypt-form">
-                                <div class="form-group">
-                                    <label for="password-input">Note content
-                                        <i class="fas fa-lock-open"></i>
-                                    </label>
-                                    <textarea class="form-control"
-                                              id="encrypt-content-input"
-                                              required="required"
-                                              aria-describedby="contentHelp"></textarea>
-                                    <small id="contentHelp"
-                                           class="form-text text-muted">Note to be encrypted.</small>
-                                </div>
-                                <div class="form-group">
-                                    <label for="password-input">Password</label>
-                                    <input type="password"
-                                           class="form-control"
-                                           id="encrypt-password-input"
-                                           required="required"
-                                           aria-describedby="passwordHelp"
-                                           placeholder="Enter password/passphrase">
-                                    <small id="passwordHelp"
-                                           class="form-text text-muted">Password to encrypt your content.</small>
-                                </div>
-
-                                <span id="encrypt-error"
-                                      class="text-danger float-sm-right">
-                                </span>
-                                <button type="submit"
-                                        id="encrypt-btn"
-                                        class="btn btn-primary">
-                                    <i class="fas fa-lock"></i> Encrypt</button>
-                            </form>
-                        </div>
-                        <div id="encrypt-result-panel"
-                             class="card text-white bg-secondary">
-                            <div class="card-header">
-                                <a class="float-right text-white"
-                                   title="Copy encrypted content"
-                                   href="#"
-                                   data-command="clipboard"
-                                   data-target="encrypt-result-content">
-                                    <i class="fas fa-paste"></i>
-                                </a>
-                                Result (encrypted
-                                <i class="fas fa-lock"></i>)</div>
-                            <div class="card-body">
-                                <textarea class="form-control"
-                                          id="encrypt-result-content"
-                                          readonly></textarea>
-                            </div>
-                            <div class="card-footer">
-                                <small id="decrypt-date"></small>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Decrypt tab -->
-                    <div class="tab-pane"
-                         id="decrypt"
-                         role="tabpanel"
-                         aria-labelledby="decrypt-tab">
-                        <div id="decrypt-panel"
-                             class="mb-3">
-                            <form id="decrypt-form">
-                                <div class="form-group">
-                                    <label for="decrypt-password-input">Encrypted note
-                                        <i class="fas fa-lock"></i>
-                                    </label>
-                                    <textarea class="form-control"
-                                              id="decrypt-content-input"
-                                              required="required"
-                                              aria-describedby="contentHelp"></textarea>
-                                    <small id="contentHelp"
-                                           class="form-text text-muted">Encrypted content of the note.</small>
-                                </div>
-                                <div class="form-group">
-                                    <label for="decrypt-password-input">Password</label>
-                                    <input type="password"
-                                           class="form-control"
-                                           id="decrypt-password-input"
-                                           required="required"
-                                           aria-describedby="passwordHelp"
-                                           placeholder="Enter password/passphrase">
-                                    <small id="passwordHelp"
-                                           class="form-text text-muted">Password to decrypt your content.</small>
-                                </div>
-
-                                <span id="decrypt-error"
-                                      class="text-danger float-sm-right">
-                                </span>
-                                <button type="submit"
-                                        id="decrypt-btn"
-                                        class="btn btn-primary">
-                                    <i class="fas fa-lock-open"></i> Decrypt</button>
-                            </form>
-                        </div>
-                        <div id="decrypt-result-panel"
-                             class="card text-white bg-secondary">
-                            <div class="card-header">
-                                <a class="float-right text-white"
-                                   title="Copy decrypted content"
-                                   href="#"
-                                   data-command="clipboard"
-                                   data-target="decrypt-result-content">
-                                    <i class="fas fa-paste"></i>
-                                </a>
-                                Result (decrypted
-                                <i class="fas fa-lock-open"></i>)
-                            </div>
-                            <div class="card-body">
-                                <textarea class="form-control"
-                                          id="decrypt-result-content"
-                                          readonly></textarea>
-                            </div>
-                            <div class="card-footer">
-                                <small id="decrypt-date"></small>
-                            </div>
-                        </div>
-                    </div>
+                  <span id="encrypt-error" class="text-danger float-sm-right"> </span>
+                  <button type="submit" id="encrypt-btn" class="btn btn-primary">
+                    <i class="fas fa-lock"></i> Encrypt
+                  </button>
+                </form>
+              </div>
+              <div id="encrypt-result-panel" class="card text-white bg-secondary">
+                <div class="card-header">
+                  <a
+                    class="float-right text-white"
+                    title="Copy encrypted content"
+                    href="#"
+                    data-command="clipboard"
+                    data-target="encrypt-result-content"
+                  >
+                    <i class="fas fa-paste"></i>
+                  </a>
+                  Result (encrypted
+                  <i class="fas fa-lock"></i>)
                 </div>
+                <div class="card-body">
+                  <textarea class="form-control" id="encrypt-result-content" readonly></textarea>
+                </div>
+                <div class="card-footer">
+                  <small id="decrypt-date"></small>
+                </div>
+              </div>
             </div>
-        </div>
+            <!-- Decrypt tab -->
+            <div class="tab-pane" id="decrypt" role="tabpanel" aria-labelledby="decrypt-tab">
+              <div id="decrypt-panel" class="mb-3">
+                <form id="decrypt-form">
+                  <div class="form-group">
+                    <label for="decrypt-password-input"
+                      >Encrypted note
+                      <i class="fas fa-lock"></i>
+                    </label>
+                    <textarea
+                      class="form-control"
+                      id="decrypt-content-input"
+                      required="required"
+                      aria-describedby="contentHelp"
+                    ></textarea>
+                    <small id="contentHelp" class="form-text text-muted">Encrypted content of the note.</small>
+                  </div>
+                  <div class="form-group">
+                    <label for="decrypt-password-input">Password</label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="decrypt-password-input"
+                      required="required"
+                      aria-describedby="passwordHelp"
+                      placeholder="Enter password/passphrase"
+                    />
+                    <small id="passwordHelp" class="form-text text-muted">Password to decrypt your content.</small>
+                  </div>
 
-        <div class="card"
-             id="information-panel">
-            <div class="card-header">
-                Information about the tool
+                  <span id="decrypt-error" class="text-danger float-sm-right"> </span>
+                  <button type="submit" id="decrypt-btn" class="btn btn-primary">
+                    <i class="fas fa-lock-open"></i> Decrypt
+                  </button>
+                </form>
+              </div>
+              <div id="decrypt-result-panel" class="card text-white bg-secondary">
+                <div class="card-header">
+                  <a
+                    class="float-right text-white"
+                    title="Copy decrypted content"
+                    href="#"
+                    data-command="clipboard"
+                    data-target="decrypt-result-content"
+                  >
+                    <i class="fas fa-paste"></i>
+                  </a>
+                  Result (decrypted
+                  <i class="fas fa-lock-open"></i>)
+                </div>
+                <div class="card-body">
+                  <textarea class="form-control" id="decrypt-result-content" readonly></textarea>
+                </div>
+                <div class="card-footer">
+                  <small id="decrypt-date"></small>
+                </div>
+              </div>
             </div>
-            <div class="card-body">
-                <ul>
-                    <li>This tool can run offline.</li>
-                    <li>The encryption and decryption is done, by default, using
-                        <strong>AES 256 CBC</strong>.</li>
-                    <li>For the encryption, the
-                        <code>crypto</code> module of
-                        <a href="https://nodejs.org"
-                           target="_blank">Node.js</a> is used.</li>
-                </ul>
-            </div>
+          </div>
         </div>
+      </div>
+
+      <div class="card" id="information-panel">
+        <div class="card-header">
+          Information about the tool
+        </div>
+        <div class="card-body">
+          <ul>
+            <li>This tool can run offline.</li>
+            <li>The encryption and decryption is done, by default, using <strong>AES 256 CBC</strong>.</li>
+            <li>
+              For the encryption, the <code>crypto</code> module of
+              <a href="https://nodejs.org" target="_blank">Node.js</a> is used.
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
 
     <footer class="site-footer border-top">
-        <div class="container">
-            This is an open source tool.
-            <a href="https://github.com/diegogurpegui/cryptonotes"
-               class="float-sm-right">
-                <i class="fab fa-github"
-                   title="GitHub project"></i>
-            </a>
-        </div>
+      <div class="container">
+        This is an open source tool.
+        <a href="https://github.com/diegogurpegui/cryptonotes" class="float-sm-right">
+          <i class="fab fa-github" title="GitHub project"></i>
+        </a>
+      </div>
     </footer>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-            crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-            crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
 
     <script src="web/js/bundle.js"></script>
-</body>
-
+  </body>
 </html>
