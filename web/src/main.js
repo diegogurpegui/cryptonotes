@@ -33,10 +33,11 @@ $(function() {
     e.preventDefault();
 
     let content = $('#decrypt-content-input').val();
+    let inputEncoding = $('#decrypt-input-encoding').val();
     let password = $('#decrypt-password-input').val();
 
     try {
-      let decryptedContent = encryption.decrypt(content, password);
+      let decryptedContent = encryption.decrypt(content, password, undefined, inputEncoding);
       $('#decrypt-result-content').text(decryptedContent);
 
       let now = new Date();
