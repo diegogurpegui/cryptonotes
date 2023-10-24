@@ -9,12 +9,16 @@ The CLI has no external reference to increase security.
 Here are the different commands
 
 ```
-$ node cli encrypt <password> <content>
+$ node cli encrypt <password> <content> [encoding]
 ```
 
 ```
-$ node cli decrypt <password> <content>
+$ node cli decrypt <password> <content> [encoding]
 ```
+
+The possible encodings are:
+* `hex` for hexadecimal
+* `base64` for Base64
 
 ## Web tool
 The web tool is a user friendly version.
