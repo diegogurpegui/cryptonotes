@@ -9,11 +9,11 @@ The CLI has no external reference to increase security.
 Here are the different commands
 
 ```
-$ node cli encrypt <password> <content> [encoding]
+$ node cli encrypt <content> [encoding]
 ```
 
 ```
-$ node cli decrypt <password> <content> [encoding]
+$ node cli decrypt <content> [encoding] [outputEncoding]
 ```
 
 The possible encodings are:
